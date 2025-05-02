@@ -3,7 +3,19 @@ const validFormat = new Set([
     "image/jpeg", "image/png", "image/webp"
 ]);
 
-// verify the file type
+// update the image
+function updateImage(file) {
+    const imgURL = URL.createObjectURL(file);
+    const imgElement = document.getElementById("uploadedImage");
+    imgElement.src = imgURL;
+    imgElement.style.display = "block";
+}
+
+// Hide the div image holder
+function hideImgHolder() {
+    const divElement = document.getElementById("temp-img");
+    divElement.style.display = "none";
+}
 
 
 
@@ -19,7 +31,7 @@ fileInput.addEventListener("change", function(event) {
             console.error("Error, uploaded file not accessible");
             break;
         case 1:
-            const file = files[0];
+            file = files[0];
             
             if (!validFormat.has(file.type))
             {
@@ -31,12 +43,14 @@ fileInput.addEventListener("change", function(event) {
             }
 
             console.log(file.name);
+            // Update the image once it has been validated
+            updateImage(file);
+            hideImgHolder();
             break;
         default:
             console.error("Error: More than one file selected! Please only select one file.");
     }
-
-    
+        
 });
 
 

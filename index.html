@@ -9,7 +9,7 @@
 <body>
     <h1 class="pagetitle">Review Maker</h1>
     <div class="container">
-        <div>
+        <div class="div-area">
             <h2 style="text-align: center;">Title</h2>
             <!-- <label>Title:</label> -->
             <input type="text" id="input-title">
@@ -19,10 +19,11 @@
             <div class="img-area">
                 <h2>Image</h2>
                 <input type="file" id="imgUpload" name="imgUpload" accept="image/jpeg, image/png, image/webp">
-                <div class="img-spot">
+                <div id="temp-img" class="img-spot">
                     <p id="img-upload-text">Click to upload</p>
                 </div>
                 <!-- once a valid image is uploaded display it -->
+                 <img src="" alt="" id="uploadedImage" class="img-spot" style="display: none;">
                 <script src="./js/image-validation.js"></script>
             </div>
 
@@ -32,7 +33,7 @@
             </div>
         </div>
 
-        <div class="div-rating">
+        <div class="div-area">
             <h2 style="text-align: center;">Rating</h2>
             <p>Letter grade or 5 star system (.25 levels)</p>
             <output id="scoreOutput"></output>
@@ -42,12 +43,12 @@
             <script src="./js/score.js"></script>
         </div>
 
-        <div>
+        <div class="div-area">
             <p>Dimensions selection area</p>
             <p>Mobile, landscape, fill</p>
         </div>
 
-        <div>
+        <div class="div-area">
             <button id="generate-img">
                 Generate Image
             </button>

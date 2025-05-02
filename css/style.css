@@ -36,7 +36,7 @@ button {
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-    background-color: rgb(76, 246, 246);
+    background-color: rgb(160, 239, 239);
     padding-top: 20px;
     padding-bottom: 20px;
     width: 60vw;
@@ -52,29 +52,59 @@ button {
 .middle {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
-    justify-content:  center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
     gap: 20px;
-    /* padding: 0px 20px 0px 20px; */
-    /* width: 100%; */
 }
 
-.review-area, .img-area{
+.div-area,
+.review-area,
+.img-area {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
+}
+
+/* .img-area,
+.review-area {
+    margin: 0 20px 0px 20px;
+} */
+
+.img-area {
+    flex: auto;
+    gap: 20px;
+}
+
+.img-area h2{
+    margin-top: 20px;
+    margin-bottom: 0;;
+}
+
+.review-area {
+    flex: 2 600px;
+}
+
+
+
+.div-area {
+    align-items: center;
 }
 
 
 .img-spot {
     display: flex;
     aspect-ratio: 1 / 1.5;
-    height: 50vh;
+    max-height: 50vh;
     width: auto;
     background-color: rgb(215, 215, 215);
     align-items: center;
     justify-content: center;
+}
+
+#uploadedImage {
+    background-color: transparent;
+    object-fit: contain;
 }
 
 #input-review {
@@ -86,15 +116,10 @@ button {
     color: black;
     font-size: 24px;
     padding: 10px;
-    width: 100%;
     height: 60%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.div-rating {
-    display: flex;
-    flex-direction: column;
-}
 
 h1 {
     font-family: "Book-Antiqua-Bold", 'Courier New';
