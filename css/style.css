@@ -15,6 +15,13 @@ body {
     /* margin: 100px; */
     justify-content: center;
     align-items: center;
+    margin: 0px 0px 20px 0px;
+}
+
+button {
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: transparent;
 }
 
 .pagetitle {
@@ -28,11 +35,11 @@ body {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    align-items: center;
+    /* align-items: center; */
     background-color: rgb(76, 246, 246);
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 80vw;
+    width: 60vw;
     /* border-radius: 1%; */
 }
 
@@ -40,11 +47,8 @@ body {
     display: flex;
     justify-content:space-evenly;
     gap: 20px;
-    padding: 0px 20px 0px 20px;
-}
-
-.middle .img-area{
-
+    /* padding: 0px 20px 0px 20px; */
+    width: 100%;
 }
 
 .middle .review-area{
@@ -53,11 +57,36 @@ body {
     justify-content: center;
 }
 
-.holder-img {
+.img-spot {
+    display: flex;
     aspect-ratio: 1 / 1.5;
     height: 50vh;
     width: auto;
-    background-color: rebeccapurple;
+    background-color: rgb(215, 215, 215);
+    align-items: center;
+    justify-content: center;
+}
+
+#input-title {
+    font-size: 24px;
+    font-family: "Book-Antiqua-Bold", 'Courier New';
+}
+
+.review-area {
+    flex: auto;
+    width: 100%;
+}
+
+#input-review {
+    resize: none;
+    width: auto;
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.div-rating {
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -66,4 +95,8 @@ h1 {
 
 h2 {
     font-family: "Book-Antiqua", 'Courier New';
+}
+
+.middle h2 {
+    text-align: center;
 }
