@@ -43,19 +43,28 @@ button {
     /* border-radius: 1%; */
 }
 
-.middle {
-    display: flex;
-    justify-content:space-evenly;
-    gap: 20px;
-    /* padding: 0px 20px 0px 20px; */
-    width: 100%;
+#input-title {
+    font-size: 24px;
+    font-family: "Book-Antiqua-Bold", 'Courier New';
 }
 
-.middle .review-area{
+.middle {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    justify-content:  center;
+    gap: 20px;
+    /* padding: 0px 20px 0px 20px; */
+    /* width: 100%; */
+}
+
+.review-area, .img-area{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 40%;
 }
+
 
 .img-spot {
     display: flex;
@@ -67,20 +76,10 @@ button {
     justify-content: center;
 }
 
-#input-title {
-    font-size: 24px;
-    font-family: "Book-Antiqua-Bold", 'Courier New';
-}
-
-.review-area {
-    flex: auto;
-    width: 100%;
-}
-
 #input-review {
     resize: none;
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: 60%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
