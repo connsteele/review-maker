@@ -1,0 +1,20 @@
+{
+  "name": "review-maker",
+  "version": "1.0.0",
+  "description": "Generate nice looking images for reviews that can be shared with friends and on social media.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connsteele/review-maker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connsteele/review-maker/issues"
+  },
+  "homepage": "https://github.com/connsteele/review-maker#readme"
+}
