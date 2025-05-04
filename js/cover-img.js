@@ -23,8 +23,6 @@ async function searchBookByTitle(title, author = null, language = null) {
         // make this only select by a drop down
         url += `&lang=${language}`;
     }
-    // Sort by editions so the most popular book should appear first
-    url+= "&sort=editions";
     
     const headers = new Headers({"User-Agent": "Review Maker"});
     const response = await fetch(url, headers);
@@ -37,6 +35,8 @@ async function searchBookByTitle(title, author = null, language = null) {
     const cover_i = json.docs[0].cover_i;
     return cover_i;
 }
+
+
 
 function getOLCoverURL(keyType, keyValue) {
     console.log(`https://covers.openlibrary.org/b/${keyType}/${keyValue}-L.jpg`);
