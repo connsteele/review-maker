@@ -64,12 +64,31 @@ async function getFilteredEditions(olid) {
 
 
 function getOLCoverURL(keyType, keyValue) {
-    console.log(`https://covers.openlibrary.org/b/${keyType}/${keyValue}-L.jpg`);
+    // console.log(`https://covers.openlibrary.org/b/${keyType}/${keyValue}-L.jpg`);
+    return `https://covers.openlibrary.org/b/${keyType}/${keyValue}-L.jpg`;
 }
 
 
+async function displayCoversOnDocument () {
+    // searchBookByTitle("Empire of Silence");
+    const bookID = await getOLID("Howling Dark", "Christopher Ruocchio", "en");
+    const coverIDArray = await getFilteredEditions(bookID);
+    // getOLCoverURL("id", bookID);
 
-// searchBookByTitle("Empire of Silence");
-const bookID = await getOLID("Howling Dark", "Christopher Ruocchio", "en");
-await getFilteredEditions(bookID);
-// getOLCoverURL("id", bookID);
+    // Testing out displaying all feteched cover in the document via DOM manip
+    const imgArea = document.querySelector(".img-area");
+    for (let i = 0; i < coverIDArray.length ; i++ ) {
+        const coverImg = document.createElement("img");
+        coverImg.style.width = "100%";
+        coverImg.style.height  = "100%";
+        coverImg.style.objectFit = "contain";
+        coverImg.src = getOLCoverURL("olid", coverIDArray[i]);
+        imgArea.appendChild(coverImg);
+    }
+}
+
+const btnDisplay = document.querySelector("#testBtn");
+btnDisplay.addEventListener("click", displayCoversOnDocument);
+
+
+// Export our relevant functions in a module to use elsewhere
