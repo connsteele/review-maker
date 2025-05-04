@@ -77,6 +77,9 @@ async function displayCoversOnDocument () {
 
     // Testing out displaying all feteched cover in the document via DOM manip
     const imgArea = document.querySelector(".img-area");
+    const children = imgArea.querySelectorAll(":scope > img");
+    children.forEach(child => child.remove());
+
     for (let i = 0; i < coverIDArray.length ; i++ ) {
         const coverImg = document.createElement("img");
         coverImg.style.width = "100%";
