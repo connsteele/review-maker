@@ -1,25 +1,25 @@
 // Acceptable image format types
-const validFormat = new Set([
+const VALIDFORMATS = new Set([
     "image/jpeg", "image/png", "image/webp"
 ]);
 
 // update the image
 function updateImage(file) {
     const imgURL = URL.createObjectURL(file);
-    const imgElement = document.getElementById("uploadedImage");
+    const imgElement = document.querySelector("#uploadedImage");
     imgElement.src = imgURL;
     imgElement.style.display = "block";
 }
 
 // Hide the div image holder
 function hideImgHolder() {
-    const divElement = document.getElementById("temp-img");
+    const divElement = document.querySelector("#temp-img");
     divElement.style.display = "none";
 }
 
 
 
-const fileInput = document.getElementById("imgUpload");
+const fileInput = document.querySelector("#imgUpload");
 
 // When the file input changes check the uploaded file to validate the
 // file extension
@@ -33,7 +33,7 @@ fileInput.addEventListener("change", function(event) {
         case 1:
             file = files[0];
             
-            if (!validFormat.has(file.type))
+            if (!VALIDFORMATS.has(file.type))
             {
                 // Wrong file type
                 alert(`Error from file "${file.name}"\n
