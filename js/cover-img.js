@@ -1,15 +1,22 @@
 // Provide users with a number of covers they can pick from to select for their review
 // Search for covers with OpenLibrary API, Google Books API
 // Scrape cover from amazon using axios and cheerio?
-
+const  OLHEADERS = new Headers({"User-Agent": "Review Maker"});
 
 function makeStringSearchable(string) {
     const replacedString = string.replaceAll(" ", "+");
     return replacedString;
 }
 
+// Split the element key to only get the OLID
+function getOLIDFromKey(key) {
+    const splitString = key.split("/");
+    // get the last element of the string (OLID)
+    return splitString.at(-1);
+}
+
 // Use open library api to search for book information
-async function searchBookByTitle(title, author = null, language = null) {
+async function getOLID(title, author = null, language = null) {
     // Make sure the arguments are strings
 
     title = makeStringSearchable(title);
@@ -24,18 +31,36 @@ async function searchBookByTitle(title, author = null, language = null) {
         url += `&lang=${language}`;
     }
     
-    const headers = new Headers({"User-Agent": "Review Maker"});
-    const response = await fetch(url, headers);
+    const response = await fetch(url, OLHEADERS);
 
-    // Need to build in something for no response
+    // Need to build in something for no response from fetch
 
     const json = await response.json();
-    // console.log(json);
-    // console.log(json.docs[0].cover_i);
-    const cover_i = json.docs[0].cover_i;
-    return cover_i;
+    const topResult = json.docs[0];
+
+    return getOLIDFromKey(topResult.key);
 }
 
+async function getFilteredEditions(olid) {
+    const maxEditions = 10;
+    let url = `https://openlibrary.org/works/${olid}/editions.json`;
+    url += `?limit=${maxEditions}`
+    const response = await fetch(url, OLHEADERS);
+    const data = await response.json();
+    const editions = data.entries;
+    let editionsWithCovers = new Array;
+
+    editions.forEach(element => {
+        if (element.covers) {
+            const editionOLID = getOLIDFromKey(element.key);
+            editionsWithCovers.push(editionOLID);
+        }
+            
+    });
+
+    // console.log(editionsWithCovers);
+    return editionsWithCovers;
+}
 
 
 function getOLCoverURL(keyType, keyValue) {
@@ -45,5 +70,6 @@ function getOLCoverURL(keyType, keyValue) {
 
 
 // searchBookByTitle("Empire of Silence");
-const bookID = await searchBookByTitle("Empire of Silence", "Christopher Ruocchio", "en");
-getOLCoverURL("id", bookID);
+const bookID = await getOLID("Howling Dark", "Christopher Ruocchio", "en");
+await getFilteredEditions(bookID);
+// getOLCoverURL("id", bookID);
