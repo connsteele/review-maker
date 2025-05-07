@@ -4,11 +4,16 @@
   "description": "Generate nice looking images for reviews that can be shared with friends and on social media.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./js/scrape.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/connsteele/review-maker.git"
+  },
+  "dependencies": {
+    "axios": "1.9.0",
+    "cheerio": "1.0.0",
+    "puppeteer": "24.8.1"
   },
   "keywords": [],
   "author": "",
