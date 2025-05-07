@@ -11,9 +11,11 @@
     "url": "git+https://github.com/connsteele/review-maker.git"
   },
   "dependencies": {
-    "axios": "1.9.0",
-    "cheerio": "1.0.0",
-    "puppeteer": "24.8.1"
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "puppeteer": "^24.8.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "keywords": [],
   "author": "",
