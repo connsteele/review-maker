@@ -71,7 +71,7 @@ function getOLCoverURL(keyType, keyValue) {
 
 async function displayCoversOnDocument () {
     // searchBookByTitle("Empire of Silence");
-    const bookID = await getOLID(searchJson.title, searchJson.author, searchJson.language);
+    const bookID = await getOLID(searchObj.title, searchObj.author, searchObj.language);
     const coverIDArray = await getFilteredEditions(bookID);
     // getOLCoverURL("id", bookID);
 
@@ -91,7 +91,7 @@ async function displayCoversOnDocument () {
 }
 
 // On input to any search field update the json that is used for search
-function setBookJson (event) {
+function setSearchObj (event) {
     // add a timer before dealing with the event incase there incase the user isn't done typing
     let id = event.target.id;
     let splitID = id.split("-");
@@ -100,21 +100,21 @@ function setBookJson (event) {
     
     switch (jsonField){
         case "title":
-            searchJson.title = element.value;
+            searchObj.title = element.value;
             break;
         case "author":
-            searchJson.author = element.value;
+            searchObj.author = element.value;
             break;
         case "language":
-            searchJson.language = element.value;
+            searchObj.language = element.value;
             break;
     }
-    console.log(searchJson);
+    console.log(searchObj);
 }
 
 
 
-let searchJson = {
+let searchObj = {
     "title" : null,
     "author" : null,
     "language" : "en"
@@ -126,7 +126,7 @@ let searchNodes = imgSearchDiv.querySelectorAll("input");
 
 // change to timeout after keyup
 searchNodes.forEach(node => 
-    node.addEventListener("keyup", setBookJson));
+    node.addEventListener("keyup", setSearchObj));
 
 const btnDisplay = document.querySelector("#testBtn");
 btnDisplay.addEventListener("click", displayCoversOnDocument);

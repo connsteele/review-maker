@@ -8,6 +8,8 @@ puppeteer.use(stealthPlugin());
 console.log("Scrape has been run");
 
 async function getKoboCoverImg() {
+    // May want to use puppeteer to do a search to get the book
+        // Jumping through many -# versions could be problematic compared to navigating more of the website
 
     // the -# here gives different books of this name(or editions), sometimes there is no book/page relating to it
     // in that case I need to have a behavior/timeout. I think I should iterate through a few pages
